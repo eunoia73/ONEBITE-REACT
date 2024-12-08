@@ -24,10 +24,9 @@ console.log(numToStr1 + "입니다.");  //20입니다.
 ```
 
 ### 2. null 병합 연산자 ??, typeof 연산자
->null 병합 연산자 `??` 
-: 존재하는 값을 추려내는 기능
--> null, undefined가 아닌 값을 찾아내는 연산자
-두 
+>null 병합 연산자 `??`  <br>
+: 존재하는 값을 추려내는 기능 <br>
+-> null, undefined가 아닌 값을 찾아내는 연산자 <br>
 
 ```javascript
 // 1. null 병합 연산자
@@ -150,11 +149,11 @@ repeat(5, (idx) => {
 });
 ```
 ### 4. 객체
-> 객체 프로퍼티(속성)은 `key : value`로 구성
-접근방법 : 점 표기법 `person.name`, 괄호 표기법 `person["name"]`
-프로퍼티 삭제방법 : `delete person.hobby`, `delete person["hobby"]`
-프로퍼티 존재 유무 확인방법 : in 연산자
-`let result = "name" in person;`  -> true
+> 객체 프로퍼티(속성)은 `key : value`로 구성 <br>
+접근방법 : 점 표기법 `person.name`, 괄호 표기법 `person["name"]` <br>
+프로퍼티 삭제방법 : `delete person.hobby`, `delete person["hobby"]` <br>
+프로퍼티 존재 유무 확인방법 : in 연산자 <br>
+`let result = "name" in person;`  -> true <br>
 
 ```javascript
 // 1. 객체 생성
@@ -202,9 +201,9 @@ let result1 = "name" in person; //true
 let result2 = "cat" in person; //false
 
 ```
-> * 상수 객체
-또 다른 객체 생성하여 할당 불가
-저장된 객체 값의 프로퍼티 추가, 수정, 삭제 가능
+> * 상수 객체 <br>
+또 다른 객체 생성하여 할당 불가 <br>
+저장된 객체 값의 프로퍼티 추가, 수정, 삭제 가능 <br>
 
 
 ```javascript
@@ -223,5 +222,3 @@ animal.name = "까망이"; //수정
 delete animal.color; //삭제
 ```
 
-
-**  인프런 강의 <한 입 크기로 잘라먹는 리액트>를 수강하며 정리
