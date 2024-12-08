@@ -12,7 +12,7 @@ console.log(varA); //함수 자체 출력됨
                     //  }
 varA(); //funcA
 
-//값으로써 함수 생성하는 방식을 호이스팅 불가
+//값으로써 함수 생성하는 방식은 호이스팅 불가
 let varB = function () {
                         //익명함수
 console.log("funcB");

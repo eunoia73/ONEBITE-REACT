@@ -13,18 +13,20 @@ let var5 = var1 ?? var3; // 20
 
 let var6 = var2 ?? var3; //10 //그냥 앞에 값이 대입됨
 
-let userName = "이정환";
-let userNickName = "winterlood";
+let userName = "이름";
+let userNickName = "닉네임";
 //userName이 있으면 userName, 없으면 userNickName으로 저장됨
-let displayName = userName ?? userNickName; // "이정환"
+let displayName = userName ?? userNickName;
+console.log(displayName); // "이름"
 
 // 2. typeof 연산자
-// -> 값의 타입을 문자열롤 변환하는 기능을 하는 연산자
+// -> 값의 타입을 문자열로 변환하는 기능을 하는 연산자
 let var7 = 1;
+console.log(typeof var7); //number
 var7 = "hello";
 
 let t1 = typeof var7;
-//console.log(t1);
+console.log(t1); //string
 
 // 3. 삼항 연산자
 // -> 항을 3개 사용하는 연산자
