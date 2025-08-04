@@ -7,40 +7,19 @@ import { useState } from "react";
 // 4. 자기소개
 
 const Register = () => {
-  const [input, setInput] = useState({ //객체 형태의 하나의 스테이트로 관리
+  const [input, setInput] = useState({
+    //객체 형태의 하나의 스테이트로 관리
     name: "",
     birth: "",
     country: "",
     bio: "",
   });
 
-  console.log(input);
-
-  const onChangeName = (e) => {
-    setInput({
-      ...input, // 기존의 input 값을 유지(전개 연산자, 스프레드 연산자)
-      name: e.target.value, // 변경하고자 하는 값만
-    });
-  };
-
-  const onChangeBirth = (e) => {
+  const onChange = (e) => {
+    console.log(e.target.name, e.target.value);
     setInput({
       ...input,
-      birth: e.target.value,
-    });
-  };
-
-  const onChangeCountry = (e) => {
-    setInput({
-      ...input,
-      country: e.target.value,
-    });
-  };
-
-  const onChangeBio = (e) => {
-    setInput({
-      ...input,
-      bio: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -48,18 +27,24 @@ const Register = () => {
     <div>
       <div>
         <input
+          name="name"
           value={input.name}
-          onChange={onChangeName}
+          onChange={onChange}
           placeholder={"이름"}
         />
       </div>
 
       <div>
-        <input value={input.birth} onChange={onChangeBirth} type="date" />
+        <input
+          name="birth"
+          value={input.birth}
+          onChange={onChange}
+          type="date"
+        />
       </div>
 
       <div>
-        <select value={input.country} onChange={onChangeCountry}>
+        <select name="country" value={input.country} onChange={onChange}>
           <option value=""></option>
           <option value="kr">한국</option>
           <option value="us">미국</option>
@@ -68,7 +53,7 @@ const Register = () => {
       </div>
 
       <div>
-        <textarea value={input.bio} onChange={onChangeBio} />
+        <textarea name="bio" value={input.bio} onChange={onChange} />
       </div>
     </div>
   );
