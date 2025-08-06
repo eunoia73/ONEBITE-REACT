@@ -1,10 +1,32 @@
 import "./App.css";
 import Viewer from "./components/Viewer";
 import Controller from "./components/Controller";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Even from "./components/Even";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  const isMount = useRef(false);
+
+  // 1. 마운트 : 탄생
+  // deps : 빈 배열
+  useEffect(() => {
+    console.log("mount");
+  }, []);
+
+  // 2. 업데이트 : 변화, 리렌더링
+  // deps : 생략
+  useEffect(() => {
+    // mount 되었을 때 실행되지 않게 하기 위해
+    if (!isMount.current) {
+      isMount.current = true;
+      return;
+    }
+    console.log("update");
+  });
+
+  // 3. 언마운트 : 죽음
 
   const onClickButton = (value) => {
     setCount(count + value);
@@ -15,6 +37,7 @@ function App() {
       <h1>Simple Counter</h1>
       <section>
         <Viewer count={count} />
+        {count % 2 === 0 ? <Even /> : null}
       </section>
 
       <section>
