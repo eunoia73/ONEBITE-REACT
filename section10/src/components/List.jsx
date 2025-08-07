@@ -1,6 +1,6 @@
 import "./List.css";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const List = ({ todos, onUpdate, onDelete }) => {
   const [search, setSearch] = useState("");
@@ -20,7 +20,7 @@ const List = ({ todos, onUpdate, onDelete }) => {
 
   const filteredTodos = getFilteredData();
 
-  const getAnalyzedData = () => {
+  const { totalCount, doneCount, notDoneCount } = useMemo(() => {
     console.log("getAnalyzedData called");
     const totalCount = todos.length;
     const doneCount = todos.filter((todo) => todo.isDone).length;
@@ -31,9 +31,9 @@ const List = ({ todos, onUpdate, onDelete }) => {
       doneCount,
       notDoneCount,
     };
-  };
-
-  const { totalCount, doneCount, notDoneCount } = getAnalyzedData();
+  }, [todos]);
+  // 의존성 배열 : deps
+  // deps의 값이 변경된 경우에 콜백함수 실행
 
   return (
     <div className="List">
