@@ -15,15 +15,21 @@ import Notfound from "./pages/Notfound";
 const mockData = [
   {
     id: 1,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2025-12-17").getTime(),
     emotionId: 1,
     content: "1번 일기 내용",
   },
   {
     id: 2,
-    createdDate: new Date().getTime(),
+    createdDate: new Date("2025-12-16").getTime(),
     emotionId: 2,
     content: "2번 일기 내용",
+  },
+  {
+    id: 3,
+    createdDate: new Date("2025-11-16").getTime(),
+    emotionId: 3,
+    content: "3번 일기 내용",
   },
 ];
 
@@ -43,8 +49,8 @@ function reducer(state, action) {
 }
 
 // context 생성
-const DiaryStateContext = createContext(); // dataState의 값을 모든 router페이지에 공급할 수 있도록 설정
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext(); // dataState의 값을 모든 router페이지에 공급할 수 있도록 설정
+export const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
