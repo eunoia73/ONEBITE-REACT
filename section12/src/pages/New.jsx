@@ -11,6 +11,8 @@ const New = () => {
 
   const onSubmit = (input) => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);
+    // 페이지 이동 및 뒤로가기 방지
+    nav("/", { replace: true });
   };
 
   return (
