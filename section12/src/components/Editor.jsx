@@ -3,8 +3,6 @@ import EmotionItem from "./EmotionItem";
 import Button from "./Button";
 import { useState } from "react";
 
-const emotionId = 1;
-
 const emotionList = [
   {
     emotionId: 1,
@@ -85,9 +83,19 @@ const Editor = () => {
         <div className="emotion_list_wrapper">
           {emotionList.map((item) => (
             <EmotionItem
+              onClick={() =>
+                onChangeInput({
+                  // 그냥 컴포넌트라서 이벤트 객체가 자동으로 만들어지지 않음
+                  // -> 별도로 이벤트 객체 만들어야함
+                  target: {
+                    name: "emotionId",
+                    value: item.emotionId,
+                  },
+                })
+              }
               key={item.emotionId}
               {...item}
-              isSelected={item.emotionId === emotionId}
+              isSelected={item.emotionId === input.emotionId}
             />
           ))}
         </div>
