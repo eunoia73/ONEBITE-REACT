@@ -4,11 +4,13 @@ import Button from "../components/Button";
 import Viewer from "../components/Viewer";
 import useDiary from "../hooks/useDiary";
 import { getStringedDate } from "../util/get-stringed-date";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Diary = () => {
   // 현재 브라우저에 명시한 url 파라미터를 가져오는 기능을 함
   const params = useParams();
   const nav = useNavigate();
+  usePageTitle(`${params.id}번 일기`);
 
   const curDiaryItem = useDiary(params.id);
   console.log(curDiaryItem);
